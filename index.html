@@ -7,9 +7,7 @@
   <title>Md. Alvi Zaman</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -26,7 +24,6 @@
       position: relative;
     }
 
-    /* Animated Background Canvas */
     #bgCanvas {
       position: fixed;
       top: 0;
@@ -36,7 +33,6 @@
       z-index: -2;
     }
 
-    /* Elegant, smaller top nav */
     nav {
       display: flex;
       justify-content: space-between;
@@ -47,6 +43,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      flex-wrap: wrap;
     }
 
     nav .left {
@@ -58,6 +55,7 @@
     nav ul {
       display: flex;
       gap: 20px;
+      flex-wrap: wrap;
     }
 
     nav ul li {
@@ -75,26 +73,7 @@
 
     nav ul li a:hover {
       background-color: rgb(146, 42, 243);
-      color: white;
       transform: scale(1.1);
-    }
-
-    /* Responsive for smaller screens */
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        padding: 10px 20px;
-      }
-
-      nav ul {
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 10px;
-      }
-
-      nav .left {
-        font-size: 1.3rem;
-      }
     }
 
     .firstSec {
@@ -103,30 +82,40 @@
       justify-content: space-around;
       margin: 50px 0;
       flex-wrap: wrap;
+      gap: 30px;
     }
 
     .firstSec>div {
-      width: 30%;
-      min-width: 280px;
+      width: 45%;
+      min-width: 250px;
     }
 
     .leftSec {
-      font-size: 2.5rem;
-      margin: 60px 0;
+      font-size: 2rem;
     }
 
     .rightSec img {
-      width: 80%;
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 50%;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(0.5);
+      animation: openAnim 1.2s ease forwards;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .rightSec img:hover {
+      transform: scale(1.1);
     }
 
     .purple {
       color: rgb(146, 42, 243);
-      font-size: 2.5rem;
     }
 
     .ewu {
       color: white;
-      font-size: 2.5rem;
     }
 
     #element {
@@ -135,7 +124,7 @@
     }
 
     .secondSec {
-      max-width: 80vw;
+      max-width: 90vw;
       margin: 40px auto;
       padding: 20px 25px;
       background: rgba(146, 42, 243, 0.1);
@@ -143,27 +132,12 @@
       border-radius: 8px;
     }
 
-    .ed {
-      font-size: 1.8rem;
-      font-weight: 500;
-      margin-bottom: 10px;
-      color: rgb(146, 42, 243);
-    }
-
-    .st {
-      font-size: 1.1rem;
-      color: #e0e0ff;
-      line-height: 1.6;
-    }
-
-    /* Footer */
     footer {
       position: relative;
       background: rgba(0, 0, 0, 0.6);
       color: #bbb;
       padding: 25px 20px;
       text-align: center;
-      font-family: 'Poppins', sans-serif;
       overflow: hidden;
       margin-top: 50px;
     }
@@ -179,7 +153,6 @@
       color: #fff;
     }
 
-    /* Footer Canvas */
     #footerCanvas {
       position: absolute;
       top: 0;
@@ -188,40 +161,70 @@
       height: 100%;
       z-index: -1;
     }
-    .avatar {
-width: 150px;        /* same width */
-  height: 370px;       /* same height */
-  border-radius: 50%;  /* makes it round */
-  object-fit: cover;   /* crops image to fill */
-  display: block;   /* crop to fill the circle */
-   transition: transform 0.4s ease-in-out;
-}
-.avatar:hover {
-  transform: scale(1.1);
-}
-.avatar {
-  width: 150px;
-  height: 370px;
-  border-radius: 50%;
-  object-fit: cover;
-  opacity: 0;                     /* start hidden */
-  transform: scale(0.5);          /* start small */
-  animation: openAnim 1.2s ease forwards;
-}
 
-@keyframes openAnim {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
+    @keyframes openAnim {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
 
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .firstSec>div {
+        width: 80%;
+      }
+
+      .leftSec {
+        font-size: 1.8rem;
+      }
+
+      .rightSec img {
+        max-width: 250px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+      }
+
+      .firstSec {
+        flex-direction: column;
+        text-align: center;
+        margin: 30px 10px;
+      }
+
+      .leftSec {
+        font-size: 1.5rem;
+      }
+
+      .rightSec img {
+        max-width: 200px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .leftSec {
+        font-size: 1.2rem;
+      }
+
+      .rightSec img {
+        max-width: 150px;
+      }
+    }
   </style>
 </head>
 
 <body>
-
-  <!-- Animated Background -->
   <canvas id="bgCanvas"></canvas>
 
   <header>
@@ -239,29 +242,22 @@ width: 150px;        /* same width */
 
   <main>
     <section class="firstSec">
-      <div class="leftSec"> Hi, I'm <span class="purple">Md.Alvi Zaman</span>
+      <div class="leftSec">
+        Hi, I'm <span class="purple">Md.Alvi Zaman</span>
         <div>and I'm a student of <span class="ewu">EWU, CSE Department. I am a</span></div>
         <span id="element"></span>
       </div>
-      <div class="rightSec"> <img src="alvi.jpg" alt="Avatar" class="avatar">
+      <div class="rightSec">
+        <img src="alvi.jpg" alt="Avatar">
+      </div>
     </section>
-
- 
-  
-
   </main>
 
   <footer>
     <p>© 2025 Md. Alvi Zaman | All Rights Reserved</p>
-    <!-- <div>
-      <a href="https://facebook.com" target="_blank">Facebook</a>
-      <a href="https://github.com" target="_blank">GitHub</a>
-      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-    </div> -->
     <canvas id="footerCanvas"></canvas>
   </footer>
 
-  <!-- Typed.js -->
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
   <script>
     var typed = new Typed('#element', {
@@ -325,62 +321,7 @@ width: 150px;        /* same width */
     initBG();
     animateBG();
   </script>
-
-  <!-- Footer Particles -->
-  <script>
-    const canvasF = document.getElementById("footerCanvas");
-    const ctxF = canvasF.getContext("2d");
-    let particlesF = [];
-
-    function resizeCanvasF() {
-      canvasF.width = canvasF.offsetWidth;
-      canvasF.height = canvasF.offsetHeight;
-    }
-    window.addEventListener("resize", resizeCanvasF);
-    resizeCanvasF();
-
-    class ParticleF {
-      constructor() {
-        this.x = Math.random() * canvasF.width;
-        this.y = Math.random() * canvasF.height;
-        this.radius = Math.random() * 2 + 1;
-        this.dx = (Math.random() - 0.5) * 0.5;
-        this.dy = (Math.random() - 0.5) * 0.5;
-        this.alpha = Math.random();
-      }
-      draw() {
-        ctxF.beginPath();
-        ctxF.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctxF.fillStyle = `rgba(0,255,198,${this.alpha})`;
-        ctxF.fill();
-      }
-      update() {
-        this.x += this.dx;
-        this.y += this.dy;
-        if (this.x < 0 || this.x > canvasF.width) this.dx *= -1;
-        if (this.y < 0 || this.y > canvasF.height) this.dy *= -1;
-        this.alpha += (Math.random() - 0.5) * 0.02;
-        if (this.alpha < 0) this.alpha = 0;
-        if (this.alpha > 1) this.alpha = 1;
-        this.draw();
-      }
-    }
-
-    function initF() {
-      particlesF = [];
-      for (let i = 0; i < 50; i++) particlesF.push(new ParticleF());
-    }
-
-    function animateF() {
-      ctxF.clearRect(0, 0, canvasF.width, canvasF.height);
-      particlesF.forEach(p => p.update());
-      requestAnimationFrame(animateF);
-    }
-
-    initF();
-    animateF();
-  </script>
-
 </body>
 
 </html>
+
