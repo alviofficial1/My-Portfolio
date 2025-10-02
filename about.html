@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Md. Alvi Zaman</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+
+     * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+        background-color: rgb(1, 8, 45);
+      color: white;
+      font-size: 16px;
+      overflow-x: hidden;
+      position: relative;
+    }
+    #bgCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    nav {
+     display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 50px;
+      background-color: rgb(2, 12, 60);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav .left {
+         font-size: 1.5rem;
+      font-weight: 500;
+      color: white;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      transition: 0.3s;
+      font-weight: 400;
+    }
+
+    nav ul li a:hover {
+      color: #92a2f3;
+    }
+
+    .about-section {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 30px;
+      border-radius: 10px;
+      background: #020c3c;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s forwards;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .about-header h1 {
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 8px;
+      font-weight: 500;
+      font-size: 2rem;
+    }
+
+    .about-header p {
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 25px;
+      font-size: 1rem;
+    }
+
+    .about-content p {
+      line-height: 1.6;
+      font-size: 1rem;
+      color: #ffffff;
+      margin-bottom: 15px;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeUpText 1s forwards;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes fadeUpText {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* .skills {
+      margin-top: 25px;
+    }
+
+    .skills h2 {
+      color: #fff;
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .skills ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .skills ul li {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #0a1245;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      transition: background 0.3s;
+    }
+
+    .skills ul li i {
+      color: #92a2f3;
+    }
+
+    .skills ul li:hover {
+      background: #151c63;
+    } */
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+   <!-- Animated Background -->
+  <canvas id="bgCanvas"></canvas>
+ 
+  <header>
+    <nav>
+      <div class="left">Md. Alvi Zaman</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="about-section">
+    <div class="about-header">
+      <h1>About Me</h1>
+      <p>A curious mind passionate about coding and creativity</p>
+    </div>
+
+    <div class="about-content">
+      <p>
+        Hi, I’m <b>Md. Alvi Zaman</b>, a Computer Science & Engineering student at <b>East West University</b>.  
+        I’m passionate about programming, problem-solving, and building things that make life easier and more exciting.  
+      </p>
+
+      <p>
+        I started my coding journey with <b>C projects</b> and later explored <b>Web Development, Android Apps, Graphic Design, and Video Editing</b>.  
+        My goal is to become a skilled developer and work at companies like <b>Google</b> or <b>Microsoft</b>.  
+      </p>
+
+      <!-- <div class="skills">
+        <h2>My Skills</h2>
+        <ul>
+          <li><i class="fas fa-code"></i> C, Java, Python</li>
+          <li><i class="fas fa-laptop-code"></i> HTML, CSS</li>
+          <li><i class="fab fa-android"></i> Android</li>
+          <li><i class="fas fa-paint-brush"></i> Design</li>
+          <li><i class="fas fa-video"></i> Video Editing</li>
+        </ul>
+      </div> -->
+    </div>
+  </section>
+    <!-- Background Particles -->
+  <script>
+    const canvasBG = document.getElementById("bgCanvas");
+    const ctxBG = canvasBG.getContext("2d");
+    let particlesBG = [];
+
+    function resizeCanvasBG() {
+      canvasBG.width = window.innerWidth;
+      canvasBG.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCanvasBG);
+    resizeCanvasBG();
+
+    class ParticleBG {
+      constructor() {
+        this.x = Math.random() * canvasBG.width;
+        this.y = Math.random() * canvasBG.height;
+        this.radius = Math.random() * 2 + 1;
+        this.dx = (Math.random() - 0.5) * 0.3;
+        this.dy = (Math.random() - 0.5) * 0.3;
+        this.alpha = Math.random() * 0.5 + 0.2;
+      }
+      draw() {
+        ctxBG.beginPath();
+        ctxBG.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctxBG.fillStyle = `rgba(0,255,198,${this.alpha})`;
+        ctxBG.fill();
+      }
+      update() {
+        this.x += this.dx;
+        this.y += this.dy;
+        if (this.x < 0 || this.x > canvasBG.width) this.dx *= -1;
+        if (this.y < 0 || this.y > canvasBG.height) this.dy *= -1;
+        this.draw();
+      }
+    }
+
+    function initBG() {
+      particlesBG = [];
+      for (let i = 0; i < 80; i++) {
+        particlesBG.push(new ParticleBG());
+      }
+    }
+
+    function animateBG() {
+      ctxBG.clearRect(0, 0, canvasBG.width, canvasBG.height);
+      particlesBG.forEach(p => p.update());
+      requestAnimationFrame(animateBG);
+    }
+
+    initBG();
+    animateBG();
+  </script>
+
+</body>
+
+</html>

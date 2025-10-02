@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Md. Alvi Zaman</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: rgb(1, 8, 45);
+      color: white;
+      font-size: 16px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    #bgCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 50px;
+      background-color: rgb(2, 12, 60);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background: #922af3;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    nav ul li a:hover {
+      color: #922af3;
+    }
+
+    .left {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: white;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 80px auto;
+      padding: 40px;
+      text-align: center;
+      background: rgba(2, 12, 60, 0.85);
+      border-radius: 16px;
+      box-shadow: 0px 0px 25px rgba(146, 42, 243, 0.5);
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    h1 {
+      color: #922af3;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+
+    /* Social Links */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      font-size: 1.8rem;
+      transition: all 0.4s ease;
+      text-decoration: none;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      color: white;
+    }
+
+    .social-links a.facebook {
+      background: #1877f2;
+    }
+
+    .social-links a.youtube {
+      background: #ff0000;
+    }
+
+    .social-links a.github {
+      background: #333;
+    }
+
+    .social-links a.linkedin {
+      background: #0a66c2;
+    }
+
+    .social-links a.email {
+      background: #f39c12;
+    }
+
+    .social-links a.whatsapp {
+      background: #25d366;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.2) rotate(10deg);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .container {
+        margin: 50px 20px;
+        padding: 30px;
+      }
+
+      .social-links a {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Animated Background -->
+  <canvas id="bgCanvas"></canvas>
+
+  <header>
+    <nav>
+      <div class="left">Md. Alvi Zaman</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Contact Me</h1>
+    <p>Let’s connect! You can find me on these platforms:</p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/md.alvijamanofficial" target="_blank" class="facebook"><i
+          class="fab fa-facebook-f"></i></a>
+      <a href="https://www.youtube.com/@codewithalvi" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+      <a href="https://github.com/alviofficial1" target="_blank" class="github"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/alvi-zaman-b7415a388/" target="_blank" class="linkedin"><i
+          class="fab fa-linkedin-in"></i></a>
+      <!-- <a href="mailto:alvijaman700@gmail.com" class="email"><i class="fas fa-envelope"></i></a> -->
+      <!-- ✅ WhatsApp Contact -->
+      <a href="https://wa.me/+8801605954224?text=Hi%20Alvi,%20I%20want%20to%20connect%20with%20you!" target="_blank"
+        class="whatsapp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Background Particles -->
+  <script>
+    const canvasBG = document.getElementById("bgCanvas");
+    const ctxBG = canvasBG.getContext("2d");
+    let particlesBG = [];
+
+    function resizeCanvasBG() {
+      canvasBG.width = window.innerWidth;
+      canvasBG.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCanvasBG);
+    resizeCanvasBG();
+
+    class ParticleBG {
+      constructor() {
+        this.x = Math.random() * canvasBG.width;
+        this.y = Math.random() * canvasBG.height;
+        this.radius = Math.random() * 2 + 1;
+        this.dx = (Math.random() - 0.5) * 0.3;
+        this.dy = (Math.random() - 0.5) * 0.3;
+        this.alpha = Math.random() * 0.5 + 0.2;
+      }
+      draw() {
+        ctxBG.beginPath();
+        ctxBG.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctxBG.fillStyle = `rgba(0,255,198,${this.alpha})`;
+        ctxBG.fill();
+      }
+      update() {
+        this.x += this.dx;
+        this.y += this.dy;
+        if (this.x < 0 || this.x > canvasBG.width) this.dx *= -1;
+        if (this.y < 0 || this.y > canvasBG.height) this.dy *= -1;
+        this.draw();
+      }
+    }
+
+    function initBG() {
+      particlesBG = [];
+      for (let i = 0; i < 80; i++) {
+        particlesBG.push(new ParticleBG());
+      }
+    }
+
+    function animateBG() {
+      ctxBG.clearRect(0, 0, canvasBG.width, canvasBG.height);
+      particlesBG.forEach(p => p.update());
+      requestAnimationFrame(animateBG);
+    }
+
+    initBG();
+    animateBG();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alvi — Skills</title>
+
+  <!-- Google Font + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    :root {
+      --bg: #02072a;
+      --card: #071033;
+      --accent: #922af3;
+      --muted: #bfc9ff;
+      --glass: rgba(255, 255, 255, 0.04);
+    }
+
+    body {
+      background-color: rgb(1, 8, 45);
+      color: white;
+      font-size: 16px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    #bgCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", system-ui, Segoe UI, Roboto, Helvetica, Arial;
+      background: linear-gradient(180deg, var(--bg) 0%, #030428 100%);
+      color: #e8eefb;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.45;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 50px;
+      background-color: rgb(2, 12, 60);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: white;
+    }
+
+    .brand .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 6px 18px rgba(146, 42, 243, 0.25)
+    }
+
+    nav ul {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      list-style: none
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-weight: 500
+    }
+
+    nav a:hover {
+      background: rgba(146, 42, 243, 0.12);
+      color: white;
+      transform: translateY(-2px);
+      transition: all .18s ease
+    }
+
+    /* LAYOUT */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px
+    }
+
+    .hero {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap
+    }
+
+    .hero-left {
+      flex: 1;
+      min-width: 260px
+    }
+
+    .hero-right {
+      width: 260px;
+      min-width: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center
+    }
+
+    /* AVATAR (elegant opening animation) */
+    .avatar-wrap {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      padding: 8px;
+      background: linear-gradient(180deg, rgba(146, 42, 243, 0.08), rgba(146, 42, 243, 0.02));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 40px rgba(9, 6, 40, 0.6);
+      transform-origin: center;
+      opacity: 0;
+      transform: translateY(36px) scale(.92);
+      animation: openAvatar 1.5s cubic-bezier(.16, .98, .47, 1) forwards;
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      border: 6px solid rgba(255, 255, 255, 0.04);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45), 0 0 40px rgba(146, 42, 243, 0.08) inset;
+    }
+
+    .avatar-wrap:hover {
+      transform: translateY(-6px) scale(1.02);
+      transition: transform .28s ease
+    }
+
+    @keyframes openAvatar {
+      0% {
+        opacity: 0;
+        transform: translateY(36px) scale(.88)
+      }
+
+      60% {
+        opacity: 1;
+        transform: translateY(-8px) scale(1.04)
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1)
+      }
+    }
+
+    /* Hero text */
+    h1 {
+      font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+      margin: 0 0 8px 0;
+      line-height: 1.02
+    }
+
+    .muted {
+      color: var(--muted);
+      font-weight: 500
+    }
+
+    .accent {
+      color: var(--accent);
+      font-weight: 600
+    }
+
+    /* Typed */
+    .typed {
+      display: inline-block;
+      color: #dfe8ff;
+      font-weight: 600;
+      margin-left: 6px
+    }
+
+    /* CTA */
+    .ctas {
+      margin-top: 18px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 8px 30px rgba(146, 42, 243, 0.14);
+      transition: transform .18s ease
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--muted)
+    }
+
+    .btn:hover {
+      transform: translateY(-6px)
+    }
+
+    /* Skills Section */
+    .skills {
+      margin-top: 40px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.015));
+      padding: 18px;
+      border-radius: 12px
+    }
+
+    .skill {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      gap: 12px
+    }
+
+    .skill .left {
+      flex: 1
+    }
+
+    .skill .label {
+      font-weight: 600;
+      margin-bottom: 6px
+    }
+
+    .bar {
+      width: 100%;
+      height: 12px;
+      background: var(--glass);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar>i {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), #00ffc6);
+      border-radius: inherit;
+      transition: width 1.4s cubic-bezier(.2, .9, .25, 1);
+      box-shadow: 0 6px 18px rgba(146, 42, 243, 0.12);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 48px;
+      padding: 26px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6)
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+      margin: 0 8px;
+      font-weight: 600
+    }
+
+    footer small {
+      display: block;
+      margin-top: 8px;
+      color: rgba(255, 255, 255, 0.28)
+    }
+
+    /* Responsive */
+    @media (max-width:880px) {
+      .hero {
+        gap: 24px
+      }
+
+      .hero-right {
+        order: -1
+      }
+
+      nav {
+        padding: 12px 18px
+      }
+
+      .container {
+        margin-top: 20px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="bgCanvas"></canvas>
+  <nav>
+    <div class="brand"><span class="dot"></span><span>Md. Alvi Zaman</span></div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <!-- HERO -->
+    <section id="home" class="hero" aria-label="intro">
+      <div class="hero-left">
+        <h2>Hello, I'm <span class="accent">Md. Alvi Zaman</span></h2>
+        <p class="muted">Student — <strong class="muted">East West University, CSE</strong> • Passionate about building clean interfaces and useful apps.</p>
+
+        <div style="margin-top:12px">
+          <span class="muted">I'm a —</span>
+          <span id="typed" class="typed"></span>
+        </div>
+
+        <div class="ctas">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn secondary" href="#contact">Contact Me</a>
+        </div>
+
+        <!-- Skills small preview -->
+        <div class="skills" style="margin-top:22px">
+          <div class="skill">
+            <div class="left">
+              <div class="label">Web Development</div>
+              <div class="bar"><i data-pct="50"></i></div>
+            </div>
+            <div style="width:74px;text-align:right" class="muted">50%</div>
+          </div>
+
+          <div class="skill">
+            <div class="left">
+              <div class="label">Android Development</div>
+              <div class="bar"><i data-pct="60"></i></div>
+            </div>
+            <div style="width:74px;text-align:right" class="muted">50%</div>
+          </div>
+
+          <div class="skill">
+            <div class="left">
+              <div class="label">Java</div>
+              <div class="bar"><i data-pct="50"></i></div>
+            </div>
+            <div style="width:74px;text-align:right" class="muted">50%</div>
+          </div>
+
+            <div class="skill">
+            <div class="left">
+              <div class="label">C programing</div>
+              <div class="bar"><i data-pct="50"></i></div>
+            </div>
+            <div style="width:74px;text-align:right" class="muted">50%</div>
+          </div>
+
+
+          <div class="skill">
+            <div class="left">
+              <div class="label">Python</div>
+              <div class="bar"><i data-pct="50"></i></div>
+            </div>
+            <div style="width:74px;text-align:right" class="muted">50%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right" aria-hidden="false">
+        <div class="avatar-wrap" title="Md. Alvi Zaman">
+          <img class="avatar" src="alvi.jpg" alt="Photo of Md. Alvi Zaman (replace alvi.jpg)" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Typed.js -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+    // Typed roles
+    new Typed('#typed', {
+      strings: ['Programmer', 'Web Developer', 'Android Developer', 'Graphic Designer', 'Video Editor'],
+      typeSpeed: 55,
+      backSpeed: 35,
+      backDelay: 1400,
+      loop: true
+    });
+
+    // animate skill bars when they enter viewport
+    function animateSkills() {
+      document.querySelectorAll('.bar i').forEach(el => {
+        const pct = el.getAttribute('data-pct') || 0;
+        el.style.width = pct + '%';
+      });
+    }
+
+    const skillsSection = document.querySelector('.skills');
+    if (skillsSection) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            animateSkills();
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.25 });
+      io.observe(skillsSection);
+    } else {
+      window.addEventListener('load', animateSkills);
+    }
+  </script>
+
+  <!-- Background Particles -->
+  <script>
+    const canvasBG = document.getElementById("bgCanvas");
+    const ctxBG = canvasBG.getContext("2d");
+    let particlesBG = [];
+
+    function resizeCanvasBG() {
+      canvasBG.width = window.innerWidth;
+      canvasBG.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCanvasBG);
+    resizeCanvasBG();
+
+    class ParticleBG {
+      constructor() {
+        this.x = Math.random() * canvasBG.width;
+        this.y = Math.random() * canvasBG.height;
+        this.radius = Math.random() * 2 + 1;
+        this.dx = (Math.random() - 0.5) * 0.3;
+        this.dy = (Math.random() - 0.5) * 0.3;
+        this.alpha = Math.random() * 0.5 + 0.2;
+      }
+      draw() {
+        ctxBG.beginPath();
+        ctxBG.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctxBG.fillStyle = `rgba(0,255,198,${this.alpha})`;
+        ctxBG.fill();
+      }
+      update() {
+        this.x += this.dx;
+        this.y += this.dy;
+        if (this.x < 0 || this.x > canvasBG.width) this.dx *= -1;
+        if (this.y < 0 || this.y > canvasBG.height) this.dy *= -1;
+        this.draw();
+      }
+    }
+
+    function initBG() {
+      particlesBG = [];
+      for (let i = 0; i < 80; i++) {
+        particlesBG.push(new ParticleBG());
+      }
+    }
+
+    function animateBG() {
+      ctxBG.clearRect(0, 0, canvasBG.width, canvasBG.height);
+      particlesBG.forEach(p => p.update());
+      requestAnimationFrame(animateBG);
+    }
+
+    initBG();
+    animateBG();
+  </script>
+
+</body>
+
+</html>
